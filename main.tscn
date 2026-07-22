@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://c4cau8kc3a3eo"]
 
 [ext_resource type="PackedScene" uid="uid://0oef8ydi13kw" path="res://player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://df5tmgldhtfq6" path="res://items/blood_bag.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D" unique_id=284116669]
 
 [node name="Player" parent="." unique_id=1859637775 instance=ExtResource("1_ig7tw")]
+
+[node name="BloodBag" parent="." unique_id=1404437913 instance=ExtResource("2_0xm2m")]
+position = Vector2(359, 139)

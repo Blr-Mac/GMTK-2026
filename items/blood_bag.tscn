@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://df5tmgldhtfq6"]
+
+[ext_resource type="Script" uid="uid://bxfsgq7k87eeg" path="res://items/blood_bag.gd" id="1_r6msa"]
+[ext_resource type="Texture2D" uid="uid://dwtkyuyglfn0h" path="res://icon.svg" id="2_ko1qa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ko1qa"]
+radius = 64.00781
+
+[node name="BloodBag" type="Area2D" unique_id=1570092675]
+script = ExtResource("1_r6msa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1226315638]
+shape = SubResource("CircleShape2D_ko1qa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=231656246]
+texture = ExtResource("2_ko1qa")
