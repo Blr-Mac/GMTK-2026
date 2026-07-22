@@ -1,3 +1,6 @@
+# Ignore assets folder
+assests/
+
 # Godot 4+ specific ignores
 .godot/
 .nomedia
