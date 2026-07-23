@@ -21,3 +21,5 @@ shape = SubResource("CircleShape2D_kqu6x")
 position = Vector2(9.000001, 6)
 scale = Vector2(17.5, 13.5)
 mesh = SubResource("BoxMesh_oul6g")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1571356390]
