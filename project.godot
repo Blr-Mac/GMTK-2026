@@ -15,6 +15,10 @@ run/main_scene="uid://c4cau8kc3a3eo"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Signals="*uid://de8gi1p58kdsp"
+
 [global_group]
 
 player=""

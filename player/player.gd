@@ -7,6 +7,7 @@ var local_mouse_pos: Vector2
 @onready var muzzle: Marker2D = $Muzzle
 
 var timer : float = 0
+@export var energy_timer : float = 2
 
 @export var shoot_cooldown : float = 1
 
@@ -14,6 +15,10 @@ func _physics_process(delta: float) -> void:
 	var input_vector := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	timer += delta
+	energy_timer -= delta
+	
+	if energy_timer <= 0:
+		Signals.player_energy.emit(-1)
 	
 	if input_vector != Vector2.ZERO:
 		velocity = input_vector * SPEED
@@ -23,6 +28,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and timer > shoot_cooldown:
 		local_mouse_pos = get_local_mouse_position()
 		shoot(local_mouse_pos.normalized())
+		Signals.player_ammo.emit(-1)
 		timer = 0
 		
 	move_and_slide()
@@ -41,9 +47,11 @@ func shoot(launch_angle : Vector2) -> void:
 	projectile.global_position += launch_angle * Vector2(100,100)
 	projectile.launch(launch_angle)
 	
-func pickup_blood(value : int):
-	print("blood: ", value)
+func pickup_blood(value : float):
+	Signals.player_blood.emit(value)
+	#print("blood: ", value)
 
 func damage(value: float):
-	print("damage: ", value)
-	print("died :(")
+	Signals.player_health.emit(value)
+	#print("damage: ", value)
+	#print("died :(")
