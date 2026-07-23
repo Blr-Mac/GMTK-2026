@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var speed: float = 800.0
+@export var speed: float = 150.0
 @export var lifetime: float = 5.0 # Despawn timer
 @export var damage: float = 1
 
