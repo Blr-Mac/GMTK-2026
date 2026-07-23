@@ -8,6 +8,7 @@ func launch(direction: Vector2) -> void:
 	var impulse = direction.normalized() * speed
 	
 	apply_central_impulse(impulse)
+	$AnimatedSprite2D.play("default")
 
 func _ready() -> void:
 	get_tree().create_timer(lifetime).timeout.connect(queue_free)

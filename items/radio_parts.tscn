@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://chmjxe1dlai1h"]
+
+[ext_resource type="Script" uid="uid://dskar6ykjry7r" path="res://items/radio_parts.gd" id="1_skkl0"]
+[ext_resource type="Texture2D" uid="uid://6vo4gxgjinhx" path="res://assets/radio_sprite.png" id="2_y1mu4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_skkl0"]
+
+[node name="RadioParts" type="Area2D" unique_id=1508846236]
+script = ExtResource("1_skkl0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2134414727]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_skkl0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1064852065]
+texture = ExtResource("2_y1mu4")
+hframes = 2
+vframes = 2

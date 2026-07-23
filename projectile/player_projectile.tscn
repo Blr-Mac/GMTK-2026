@@ -1,10 +1,74 @@
 [gd_scene format=3 uid="uid://b1fow0b5wurkt"]
 
-[ext_resource type="Texture2D" uid="uid://dwtkyuyglfn0h" path="res://icon.svg" id="1_2qw0i"]
 [ext_resource type="Script" uid="uid://o7qbrufl1dbb" path="res://projectile/player_projectile.gd" id="1_q53dj"]
+[ext_resource type="Texture2D" uid="uid://64sdi6bgvy8" path="res://assets/projectile_sprite.png" id="3_7kxas"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eem8j"]
-radius = 66.007576
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eem8j"]
+atlas = ExtResource("3_7kxas")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt30n"]
+atlas = ExtResource("3_7kxas")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isql2"]
+atlas = ExtResource("3_7kxas")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k604u"]
+atlas = ExtResource("3_7kxas")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hex4f"]
+atlas = ExtResource("3_7kxas")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbeqv"]
+atlas = ExtResource("3_7kxas")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ih82"]
+atlas = ExtResource("3_7kxas")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1d17"]
+atlas = ExtResource("3_7kxas")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvuem"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eem8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt30n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isql2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k604u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hex4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbeqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ih82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1d17")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="PlayerProjectile" type="RigidBody2D" unique_id=1124252955]
 gravity_scale = 0.0
@@ -12,8 +76,10 @@ contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_q53dj")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=361519023]
-texture = ExtResource("1_2qw0i")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1116796613]
 shape = SubResource("CircleShape2D_eem8j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=548785103]
+sprite_frames = SubResource("SpriteFrames_mvuem")
+frame = 7
+frame_progress = 1.0

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://be663swyltlry"]
+
+[ext_resource type="Script" uid="uid://diis41u8aj1iq" path="res://items/upgrade_parts.gd" id="1_u51rh"]
+[ext_resource type="Texture2D" uid="uid://bhajbb1af1nbi" path="res://assets/scrap_sprite.png" id="2_37y2f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u51rh"]
+
+[node name="UpgradeParts" type="Area2D" unique_id=2138225710]
+script = ExtResource("1_u51rh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2136459392]
+shape = SubResource("CircleShape2D_u51rh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1704236827]
+texture = ExtResource("2_37y2f")
+hframes = 2
+vframes = 2

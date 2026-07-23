@@ -4,15 +4,23 @@
 [ext_resource type="PackedScene" uid="uid://df5tmgldhtfq6" path="res://items/blood_bag.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bavabkwkhq1xl" path="res://enemy/default.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://d38m73ytqj0cs" path="res://UI/UI.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://chmjxe1dlai1h" path="res://items/radio_parts.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://be663swyltlry" path="res://items/upgrade_parts.tscn" id="6_272bh"]
 
 [node name="Main" type="Node2D" unique_id=284116669]
 
 [node name="Player" parent="." unique_id=1859637775 instance=ExtResource("1_ig7tw")]
 
 [node name="BloodBag" parent="." unique_id=1404437913 instance=ExtResource("2_0xm2m")]
-position = Vector2(359, 139)
+position = Vector2(125, -69)
 
 [node name="Default" parent="." unique_id=427205929 instance=ExtResource("3_h2yge")]
-position = Vector2(190, 373)
+position = Vector2(-127, 60)
 
 [node name="Ui" parent="." unique_id=1526298567 instance=ExtResource("4_1bvp3")]
+
+[node name="RadioParts" parent="." unique_id=1508846236 instance=ExtResource("5_7mycd")]
+position = Vector2(123, 16)
+
+[node name="UpgradeParts" parent="." unique_id=2138225710 instance=ExtResource("6_272bh")]
+position = Vector2(124, -27)

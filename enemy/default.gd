@@ -24,9 +24,9 @@ func shoot(launch_angle : Vector2) -> void:
 	projectile.global_position = global_position
 	projectile.global_rotation = global_rotation
 	
-	projectile.global_position += launch_angle * Vector2(30,30)
+	projectile.global_position += launch_angle * Vector2(20,20)
 	projectile.launch(launch_angle)
 	
 func damage(value: float):
-	print("damage: ", value)
+	#print("damage: ", value)
 	queue_free()

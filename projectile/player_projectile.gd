@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var speed: float = 800.0
+@export var speed: float = 100.0
 @export var lifetime: float = 5.0 # Despawn timer
 @export var damage: float = 1
 
@@ -8,6 +8,7 @@ func launch(direction: Vector2) -> void:
 	var impulse = direction.normalized() * speed
 	
 	apply_central_impulse(impulse)
+	$AnimatedSprite2D.play("default")
 
 func _ready() -> void:
 	get_tree().create_timer(lifetime).timeout.connect(queue_free)

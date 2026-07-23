@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 100.0
 var local_mouse_pos: Vector2
 
 @export var projectile_scene: PackedScene
@@ -67,12 +67,18 @@ func shoot(launch_angle : Vector2) -> void:
 	projectile.global_position = global_position
 	projectile.global_rotation = global_rotation
 	
-	projectile.global_position += launch_angle * Vector2(100,100)
+	projectile.global_position += launch_angle * Vector2(20,20)
 	projectile.launch(launch_angle)
 	
 func pickup_blood(value : float):
 	Signals.player_blood.emit(value)
 	#print("blood: ", value)
+
+func pickup_radio(value : int):
+	Signals.player_radio.emit(value)
+	
+func pickup_parts(value : int):
+	Signals.player_parts.emit(value)
 
 func damage(value: float):
 	Signals.player_health.emit(value)

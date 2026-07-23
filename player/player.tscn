@@ -139,7 +139,6 @@ script = ExtResource("1_oul6g")
 projectile_scene = ExtResource("2_rkbax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2130266054]
-position = Vector2(9, 6)
 shape = SubResource("CircleShape2D_kqu6x")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1571356390]
