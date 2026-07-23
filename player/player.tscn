@@ -6,8 +6,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqu6x"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_oul6g"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
 atlas = ExtResource("3_g1dw6")
 region = Rect2(0, 0, 24, 24)
@@ -143,11 +141,6 @@ projectile_scene = ExtResource("2_rkbax")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2130266054]
 position = Vector2(9, 6)
 shape = SubResource("CircleShape2D_kqu6x")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=67570324]
-position = Vector2(9.000001, 6)
-scale = Vector2(17.5, 13.5)
-mesh = SubResource("BoxMesh_oul6g")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1571356390]
 

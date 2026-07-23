@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		if dir_index != -1:
 			var anim_name: String = DIR_ANIMATIONS[dir_index]
 			sprite.play(anim_name)
-			print("Direction Index: ", dir_index, " | Playing: ", anim_name)
+			#print("Direction Index: ", dir_index, " | Playing: ", anim_name)
 		else:
 			sprite.stop() # Idle
 
@@ -80,16 +80,11 @@ func damage(value: float):
 	#print("died :(")
 
 func vector_to_direction_8(dir: Vector2, deadzone: float = 0.2) -> int:
-	# Ignore tiny joystick drift
 	if dir.length_squared() < deadzone * deadzone:
 		return -1
 
-	# Get angle in radians (-PI to PI)
-	# Note: Godot's screen coordinates have -Y as UP!
-	var angle: float = dir.angle() # Angle where (1,0) is 0 radians
+	var angle: float = dir.angle()
 	
-	# Shift angle so UP (0, -1) becomes 0, and make it positive (0 to 2*PI)
 	var shifted_angle: float = fposmod(angle + (PI / 2.0) + (PI / 8.0), TAU)
 	
-	# Divide 360° (TAU) into 8 equal slices of 45° (PI / 4)
 	return int(shifted_angle / (PI / 4.0))
