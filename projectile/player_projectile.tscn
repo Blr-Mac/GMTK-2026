@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://b1fow0b5wurkt"]
 
 [ext_resource type="Texture2D" uid="uid://dwtkyuyglfn0h" path="res://icon.svg" id="1_2qw0i"]
-[ext_resource type="Script" uid="uid://do0lr5feqdlpp" path="res://projectile/projectile.gd" id="2_7kxas"]
+[ext_resource type="Script" uid="uid://o7qbrufl1dbb" path="res://projectile/player_projectile.gd" id="1_q53dj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eem8j"]
+radius = 66.007576
 
 [node name="PlayerProjectile" type="RigidBody2D" unique_id=1124252955]
 gravity_scale = 0.0
-script = ExtResource("2_7kxas")
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_q53dj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=361519023]
 texture = ExtResource("1_2qw0i")

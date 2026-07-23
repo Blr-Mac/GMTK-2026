@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://0oef8ydi13kw" path="res://player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://df5tmgldhtfq6" path="res://items/blood_bag.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bavabkwkhq1xl" path="res://enemy/default.tscn" id="3_h2yge"]
 
 [node name="Main" type="Node2D" unique_id=284116669]
 
@@ -9,3 +10,6 @@
 
 [node name="BloodBag" parent="." unique_id=1404437913 instance=ExtResource("2_0xm2m")]
 position = Vector2(359, 139)
+
+[node name="Default" parent="." unique_id=427205929 instance=ExtResource("3_h2yge")]
+position = Vector2(190, 373)

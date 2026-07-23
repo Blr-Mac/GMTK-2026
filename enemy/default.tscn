@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://bavabkwkhq1xl"]
 
-[ext_resource type="PackedScene" uid="uid://0oef8ydi13kw" path="res://player/player.tscn" id="1_einnf"]
+[ext_resource type="Script" uid="uid://brnp2y3yex66m" path="res://enemy/default.gd" id="1_einnf"]
+[ext_resource type="Texture2D" uid="uid://dwtkyuyglfn0h" path="res://icon.svg" id="2_3afxc"]
+[ext_resource type="PackedScene" uid="uid://cqnxt61m2wjkc" path="res://projectile/enemy_projectile.tscn" id="2_j1bfp"]
 
-[node name="Default" type="Node2D" unique_id=967946905]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3afxc"]
+radius = 65.37584
 
-[node name="Player" parent="." unique_id=1859637775 instance=ExtResource("1_einnf")]
+[node name="Default" type="CharacterBody2D" unique_id=1543769249 groups=["enemy"]]
+script = ExtResource("1_einnf")
+projectile_scene = ExtResource("2_j1bfp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1789878555]
+shape = SubResource("CircleShape2D_3afxc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=699513472]
+texture = ExtResource("2_3afxc")

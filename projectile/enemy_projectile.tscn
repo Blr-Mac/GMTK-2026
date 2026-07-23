@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cqnxt61m2wjkc"]
+
+[ext_resource type="Script" uid="uid://dhpeywd6bxcak" path="res://projectile/enemy_projectile.gd" id="1_ayf6a"]
+[ext_resource type="Texture2D" uid="uid://dwtkyuyglfn0h" path="res://icon.svg" id="2_saffc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5pofb"]
+
+[node name="EnemyProjectile" type="RigidBody2D" unique_id=1319376945]
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_ayf6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=629454869]
+shape = SubResource("CircleShape2D_5pofb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2100168384]
+texture = ExtResource("2_saffc")
