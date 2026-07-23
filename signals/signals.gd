@@ -6,3 +6,5 @@ signal player_energy(energy_changed : float)
 signal player_blood(blood_changed : float)
 signal player_radio(radio_changed : int)
 signal player_parts(parts_changed : int)
+
+signal player_death()

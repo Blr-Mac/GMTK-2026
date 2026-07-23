@@ -10,16 +10,24 @@ func _ready():
 	Signals.player_ammo.connect(_on_player_ammo)
 	Signals.player_energy.connect(_on_player_energy)
 	Signals.player_blood.connect(_on_player_blood)
+	Signals.player_death.connect(_on_player_death)
 	pass # Replace with function body.
 
 func _on_player_health(health_changed : float):
-	$Health.text = "health: " + str(health_changed)
+	State.health += health_changed
+	$Health.text = "health: " + str(State.health)
 
 func _on_player_ammo(ammo_changed : float):
-	$Ammo.text = "Ammo: " + str(ammo_changed)
+	State.ammo += ammo_changed
+	$Ammo.text = "Ammo: " + str(State.ammo)
 
 func _on_player_energy(energy_changed : float):
-	$Energy.text = "Energy: " + str(energy_changed)
+	State.energy += energy_changed
+	$Energy.text = "Energy: " + str(State.energy)
 
 func _on_player_blood(blood_changed : float):
-	$Blood.text = "Blood: " + str(blood_changed)
+	State.blood += blood_changed
+	$Blood.text = "Blood: " + str(State.blood)
+
+func _on_player_death():
+	print("dead")

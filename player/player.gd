@@ -4,7 +4,6 @@ const SPEED = 100.0
 var local_mouse_pos: Vector2
 
 @export var projectile_scene: PackedScene
-@onready var muzzle: Marker2D = $Muzzle
 
 var timer : float = 0
 @export var energy_timer : float = 2
@@ -32,6 +31,10 @@ func _physics_process(delta: float) -> void:
 	
 	if energy_timer <= 0:
 		Signals.player_energy.emit(-1)
+		energy_timer = 2
+		if State.energy <= 0:
+			Signals.player_death.emit()
+			queue_free()
 	
 	if input_vector != Vector2.ZERO:
 		velocity = input_vector * SPEED
@@ -48,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 	
-	if Input.is_action_just_pressed("shoot") and timer > shoot_cooldown:
+	if Input.is_action_just_pressed("shoot") and timer > shoot_cooldown and State.ammo > 0:
 		local_mouse_pos = get_local_mouse_position()
 		shoot(local_mouse_pos.normalized())
 		Signals.player_ammo.emit(-1)
@@ -81,7 +84,10 @@ func pickup_parts(value : int):
 	Signals.player_parts.emit(value)
 
 func damage(value: float):
-	Signals.player_health.emit(value)
+	Signals.player_health.emit(-value)
+	if State.health <= 0:
+		Signals.player_death.emit()
+		queue_free()
 	#print("damage: ", value)
 	#print("died :(")
 
