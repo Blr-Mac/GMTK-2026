@@ -11,6 +11,19 @@ var timer : float = 0
 
 @export var shoot_cooldown : float = 1
 
+const DIR_ANIMATIONS: Array[String] = [
+	"up",
+	"up_right",
+	"right",
+	"down_right",
+	"down",
+	"down_left",
+	"left",
+	"up_left"
+]
+
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 func _physics_process(delta: float) -> void:
 	var input_vector := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
@@ -22,6 +35,16 @@ func _physics_process(delta: float) -> void:
 	
 	if input_vector != Vector2.ZERO:
 		velocity = input_vector * SPEED
+		
+		var dir_index := vector_to_direction_8(input_vector)
+	
+		if dir_index != -1:
+			var anim_name: String = DIR_ANIMATIONS[dir_index]
+			sprite.play(anim_name)
+			print("Direction Index: ", dir_index, " | Playing: ", anim_name)
+		else:
+			sprite.stop() # Idle
+
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 	
@@ -55,3 +78,18 @@ func damage(value: float):
 	Signals.player_health.emit(value)
 	#print("damage: ", value)
 	#print("died :(")
+
+func vector_to_direction_8(dir: Vector2, deadzone: float = 0.2) -> int:
+	# Ignore tiny joystick drift
+	if dir.length_squared() < deadzone * deadzone:
+		return -1
+
+	# Get angle in radians (-PI to PI)
+	# Note: Godot's screen coordinates have -Y as UP!
+	var angle: float = dir.angle() # Angle where (1,0) is 0 radians
+	
+	# Shift angle so UP (0, -1) becomes 0, and make it positive (0 to 2*PI)
+	var shifted_angle: float = fposmod(angle + (PI / 2.0) + (PI / 8.0), TAU)
+	
+	# Divide 360° (TAU) into 8 equal slices of 45° (PI / 4)
+	return int(shifted_angle / (PI / 4.0))

@@ -1,5 +1,5 @@
 # Ignore assets folder
-assests/
+assets/
 
 # Godot 4+ specific ignores
 .godot/
