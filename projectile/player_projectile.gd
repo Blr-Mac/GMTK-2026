@@ -18,3 +18,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		body.damage(damage)
 		queue_free()
+	if body.is_in_group("lever"):
+		body.damage(damage)
+		queue_free()

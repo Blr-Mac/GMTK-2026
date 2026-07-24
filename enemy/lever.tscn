@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dit5quva4uybp"]
+
+[ext_resource type="Script" uid="uid://b48obr4ue150j" path="res://enemy/lever.gd" id="1_ayitx"]
+[ext_resource type="Texture2D" uid="uid://mrg1b5ge2pdv" path="res://assets/lever_sprite.png" id="1_sa6h5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ayitx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayitx"]
+atlas = ExtResource("1_sa6h5")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ahhc"]
+atlas = ExtResource("1_sa6h5")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0446h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayitx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ahhc")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="Lever" type="CharacterBody2D" unique_id=587741678 groups=["lever"]]
+script = ExtResource("1_ayitx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1083512303]
+shape = SubResource("CircleShape2D_ayitx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1786844774]
+sprite_frames = SubResource("SpriteFrames_0446h")
+animation = &"on"
