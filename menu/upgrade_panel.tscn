@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dos7bhpdwakri"]
+
+[ext_resource type="Script" uid="uid://bkg2cqbikgjdi" path="res://menu/upgrade_panel.gd" id="1_krsfv"]
+
+[node name="UpgradePanel" type="Node2D" unique_id=58744364]
+script = ExtResource("1_krsfv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1448327422]
+
+[node name="start_button" type="Button" parent="CanvasLayer" unique_id=280773277]
+offset_left = 109.0
+offset_top = 116.0
+offset_right = 205.0
+offset_bottom = 147.0
+text = "send drone"

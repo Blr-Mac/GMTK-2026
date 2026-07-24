@@ -31,3 +31,4 @@ func _on_player_blood(blood_changed : float):
 
 func _on_player_death():
 	print("dead")
+	get_tree().change_scene_to_file("res://menu/upgrade_panel.tscn")

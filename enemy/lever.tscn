@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b48obr4ue150j" path="res://enemy/lever.gd" id="1_ayitx"]
 [ext_resource type="Texture2D" uid="uid://mrg1b5ge2pdv" path="res://assets/lever_sprite.png" id="1_sa6h5"]
+[ext_resource type="Texture2D" uid="uid://dqx6eb1ofyi70" path="res://assets/door_sprite.png" id="3_wxoij"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ayitx"]
 
@@ -32,6 +33,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ayitx"]
+size = Vector2(14, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxoij"]
+size = Vector2(14, 32)
+
 [node name="Lever" type="CharacterBody2D" unique_id=587741678 groups=["lever"]]
 script = ExtResource("1_ayitx")
 
@@ -41,3 +48,30 @@ shape = SubResource("CircleShape2D_ayitx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1786844774]
 sprite_frames = SubResource("SpriteFrames_0446h")
 animation = &"on"
+
+[node name="door" type="Node2D" parent="." unique_id=1992741732]
+
+[node name="left" type="AnimatableBody2D" parent="door" unique_id=776169616]
+position = Vector2(-16, 54)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door/left" unique_id=155670956]
+position = Vector2(-9, 0)
+shape = SubResource("RectangleShape2D_ayitx")
+
+[node name="Sprite2D" type="Sprite2D" parent="door/left" unique_id=2027669675]
+texture = ExtResource("3_wxoij")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="right" type="AnimatableBody2D" parent="door" unique_id=245229224]
+position = Vector2(-16, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door/right" unique_id=1519698148]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_wxoij")
+
+[node name="Sprite2D" type="Sprite2D" parent="door/right" unique_id=998093524]
+texture = ExtResource("3_wxoij")
+hframes = 4
+vframes = 2
